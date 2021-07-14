@@ -1,0 +1,103 @@
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="#">{{title}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            
+
+            <!-- STORE -->
+            <div id="store" class="col-md-12">
+                <!-- store top filter -->
+                <div class="store-filter clearfix">
+                    <div class="store-sort">
+                        <label>
+                            Sắp xếp theo:
+                            <select class="input-select">
+                                <option value="0">Sắp xếp theo</option>
+                                <option value="1">Mới nhất</option>
+                                <option value="2">Giá tăng dần</option>
+                                <option value="3">Giá giảm dần</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <!-- /store top filter -->
+
+                <!-- store products -->
+                <div class="row">
+                    {{#if data}}
+                    {{#each data}}
+                        <!-- product -->
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="{{this.hinhAnh}}" alt="">
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-category">{{this.loai}}</p>
+                                    <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
+                                    <h4 class="product-price">{{this.gia}} VNĐ</h4>
+                                    <div class="product-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="/cart/add/{{this._id}}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /product -->
+                        <div class="clearfix visible-md visible-sm visible-xs"></div>
+                    {{/each}}
+                    {{/if}}
+                </div>
+                <!-- /store products -->
+
+                <!-- store bottom filter -->
+                <div class="store-filter clearfix">
+                    <ul class="store-pagination">
+                        <p>Trang {{index}}</p>
+                        {{#if data1}}
+                        {{#each data1}}
+                            {{#if this.cate}}
+                            <li><a href="/product/{{this.cate}}?Page={{this.NumOfPage}}">{{this.NumOfPage}}</a></li>
+                                {{else}}
+                                <li><a href="/product/search/{{this.key}}?Page={{this.NumOfPage}}">{{this.NumOfPage}}</a></li>
+                            {{/if}}
+                        {{/each}}
+                        {{/if}}                       
+                    </ul>                  
+                </div>
+                <!-- /store bottom filter -->
+            </div>
+            <!-- /STORE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

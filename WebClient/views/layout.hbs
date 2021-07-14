@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Cửa hàng điện thoại QVM</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="../../../stylesheets/css/bootstrap.min.css"/>
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="../../stylesheets/css/slick.css"/>
+    <link type="text/css" rel="stylesheet" href="../../stylesheets/css/slick-theme.css"/>
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="../../stylesheets/css/nouislider.min.css"/>
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="../../stylesheets/css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="../../stylesheets/css/style.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<!-- HEADER -->
+<header>
+    <!-- TOP HEADER -->
+    <div id="top-header">
+        <div class="container">
+            <ul class="header-links pull-left">
+                <li><a href="#"><i class="fa fa-phone"></i> +84926 823 391</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> vietkaka9x@gmail.com</a></li>
+                <li><a href="#"><i class="fa fa-map-marker"></i> 175 Tây Sơn, Đống Đa, Hà Nội</a></li>
+            </ul>
+            <ul class="header-links pull-right">
+                {{#if user}}
+                <div class="dropdown ">
+                    <div class="dropdown-toggle text-danger"  data-toggle="dropdown">
+                        <li><a href="#"><i class="fa fa-user-o"></i>{{user.email}}</a></li>
+                    </div>
+                    <div class="dropdown-menu" >                                               
+                        <a class="dropdown-item" href="/cart/list">Giỏ hàng của tôi</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/cart/orders">Đơn hàng của tôi</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/cart/checkout">Đặt hàng</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/users/info">Chi tiết tài khoản</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/users/logout">Đăng xuất</a>                    
+                    </div>
+                </div>
+                {{else}}
+                <div class="dropdown ">
+                    <div class="dropdown-toggle text-danger"  data-toggle="dropdown">
+                        <li><a href="#"><i class="fa fa-user-o"></i>Tài khoản của tôi</a></li>
+                    </div>
+                    <div class="dropdown-menu" >                         
+                        <a class="dropdown-item" href="/users/login">Đăng nhập</a>                                            
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/users/signUp">Đăng ký tài khoản</a>                     
+                    </div>
+                </div>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+    <!-- /TOP HEADER -->
+
+    <!-- MAIN HEADER -->
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- LOGO -->
+                <div class="col-md-2">
+                    <h1 id="styleH1">QVM</h1>
+                </div>
+                <!-- /LOGO -->
+
+                <!-- SEARCH BAR -->
+                <div class="col-md-7">
+                    <div class="header-search">
+                        <form method="POST" action="/product/search/all?Page=1">
+                            <select name="select" class="input-select">
+                                <option value="0">Tất cả</option>
+                                <option value="1">Theo tên</option>
+                                <option value="2">Theo loại</option>
+                                <option value="3">Theo giá</option>
+                            </select>
+                            <input type="text" class="input" name="key"  placeholder="Nhập từ khóa tìm kiếm">
+                            <input type="submit" class="search-btn" value="Tìm kiếm" placeholder="Tìm kiếm"></input>
+                        </form>
+                    </div>
+                </div>
+                <!-- /SEARCH BAR -->
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!-- /MAIN HEADER -->
+</header>
+<!-- /HEADER -->
+
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav navbar-nav">
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/product/All?Page=1">Cửa hàng</a></li>
+                <li><a href="/product/Apple?Page=1">Apple</a></li>
+                <li><a href="/product/Samsung?Page=1">Samsung</a></li>
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
+
+{{{body}}}
+
+<!-- FOOTER -->
+<footer id="footer">
+    <!-- top footer -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">About Us</h3>
+                        <p>Chuyên cung cấp các loại điện thoại Iphone, Samsung</p>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fa fa-map-marker"></i>175 Tây Sơn, Đống Đa, Hà Nội</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>+84926 823 391</a></li>
+                            <li><a href="#"><i class="fa fa-envelope-o"></i>vietkaka9x@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Iphone</a></li>
+                            <li><a href="#">Samsung</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clearfix visible-xs"></div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Information</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Orders and Returns</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Service</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">View Cart</a></li>
+                            <li><a href="#">Track My Order</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /top footer -->
+
+    <!-- bottom footer -->
+    <div id="bottom-footer" class="section">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <ul class="footer-payments">
+                        <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                        <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                    </ul>
+                    <span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+                </div> 
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /bottom footer -->
+</footer>
+<!-- /FOOTER -->
+
+<!-- jQuery Plugins -->
+<script src="../../javascripts/jquery.min.js"></script>
+<script src="../../javascripts/bootstrap.min.js"></script>
+<script src="../../javascripts/slick.min.js"></script>
+<script src="../../javascripts/nouislider.min.js"></script>
+<script src="../../javascripts/jquery.zoom.min.js"></script>
+<script src="../../javascripts/main.js"></script>
+<script src="../../javascripts/code.js"></script>
+{{{block "scripts"}}}
+
+</body>
+</html>
